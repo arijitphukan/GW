@@ -102,7 +102,7 @@
                             </div>
                             <div class="my-3 d-flex justify-content-evenly gap-2">
                                 <button type="submit" class="btn w-100 word fs-5 submitbtn" style="background-color: #F2A93B; color:#211B4D">Register</button>
-                                <button type="button" class="btn w-100 word fs-5 submitbtn" style="background-color: #52499C; color:#D9D9E3">Home</button>
+                                <button type="button" onclick="window.location.href='{{route('homepage')}}'" class="btn w-100 word fs-5 submitbtn" style="background-color: #52499C; color:#D9D9E3">Home</button>
                             </div>
                         </form>
                         <div class="container">
