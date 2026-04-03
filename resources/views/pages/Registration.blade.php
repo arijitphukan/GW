@@ -56,49 +56,56 @@
                     <div class="container my-3">
                         <h1 class="d-flex justify-content-center display-4 text-uppercase word mb-1" style="color: #F2A93B;">Registration</h1>
                         <hr class="border mb-3" style="color: #D9D9E3">
-                        <form>
+                        <form action="{{route('userregister')}}" method="post">
+                            @csrf
                             <div class="row mb-3">
                                 <div class="col-12 col-md-6">
                                     <label for="examplefname" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-regular fa-user me-2"></i>Enter your First name</label>
-                                    <input type="text" class="form-control" name="first_name">
+                                    <input type="text" class="form-control" name="first_name" value="{{old('first_name')}}">
+                                    <div class="word1" style="color:#cc9b52">@error('first_name'){{$message}}@enderror</div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label for="examplelname" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-regular fa-user me-2"></i>Enter your Last name</label>
-                                    <input type="text" class="form-control" name="last_name">
+                                    <input type="text" class="form-control" name="last_name" value="{{old('last_name')}}">
+                                    <div class="word1" style="color:#cc9b52">@error('last_name'){{$message}}@enderror</div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-solid fa-at me-2"></i>Enter your email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                                <div class="word1" style="color:#cc9b52">@error('email'){{$message}}@enderror</div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-12 col-md-6">
                                     <label for="exampleInputPassword1" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-solid fa-user-shield me-2"></i>Enter your password</label>
                                     <input type="password" class="form-control" name="password">
+                                    <div class="word1" style="color:#cc9b52">@error('password'){{$message}}@enderror</div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label for="exampleInputCnfrmPassword1" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-solid fa-user-shield me-2"></i>Confirm your password</label>
                                     <input type="password" class="form-control" name="confirm_password">
+                                    <div class="word1" style="color:#cc9b52">@error('confirm_password'){{$message}}@enderror</div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="accounttypeselect" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-regular fa-circle-check me-2"></i>Creating account as</label><br>
                                 <div class="form-check form-check-inline ms-1">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="creator">
+                                    <input class="form-check-input" type="radio" name="account_type" id="inlineRadio1" value="creator">
                                     <label class="form-check-label fs-5 word1" for="inlineRadio1" style="color:#D9D9E3">Creator</label>
                                 </div>
                                 <div class="form-check form-check-inline ms-2">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="gamer">
+                                    <input class="form-check-input" type="radio" name="account_type" id="inlineRadio2" value="gamer">
                                     <label class="form-check-label fs-5 word1" for="inlineRadio2" style="color:#D9D9E3">Gamer</label>
                                 </div>
                                 <div class="form-check form-check-inline ms-2">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="artist">
+                                    <input class="form-check-input" type="radio" name="account_type" id="inlineRadio2" value="artist">
                                     <label class="form-check-label fs-5 word1" for="inlineRadio2" style="color:#D9D9E3">Artist</label>
                                 </div>
                                 <div class="form-check form-check-inline ms-2">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="others">
+                                    <input class="form-check-input" type="radio" name="account_type" id="inlineRadio2" value="others">
                                     <label class="form-check-label fs-5 word1" for="inlineRadio2" style="color:#D9D9E3">Others</label>
                                 </div>
+                                <div class="word1" style="color:#cc9b52">@error('account_type'){{$message}}@enderror</div>
                             </div>
                             <div class="my-3 d-flex justify-content-evenly gap-2">
                                 <button type="submit" class="btn w-100 word fs-5 submitbtn" style="background-color: #F2A93B; color:#211B4D">Register</button>

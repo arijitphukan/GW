@@ -56,14 +56,17 @@
                     <div class="container my-4">
                         <h1 class="d-flex justify-content-center display-4 text-uppercase word mb-1" style="color: #F2A93B;">Login</h1>
                         <hr class="border mb-4" style="color: #D9D9E3">
-                        <form>
+                        <form method="POST" action="{{route('loginuser')}}">
+                            @csrf
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-solid fa-at me-2"></i>Enter your email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                                <div class="word1" style="color:#cc9b52">@error('email'){{$message}}@enderror</div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label fs-5 word1" style="color: #D9D9E3"><i class="fa-solid fa-user-shield me-2"></i>Enter your password</label>
                                 <input type="password" class="form-control" name="password">
+                                <div class="word1" style="color:#cc9b52">@error('password'){{$message}}@enderror</div>
                             </div>
                             <a class="word1 text-decoration-none fs-6 d-flex justify-content-end me-1 linktag" href="#" style="color: #D9D9E3">Forgot Password?</a>
                             <div class="my-3 d-flex justify-content-evenly gap-2">
@@ -74,9 +77,9 @@
                         <div class="container">
                             <h4 class="word d-flex justify-content-center" style="color: #D9D9E3">OR</h4>
                             <div class="mt-3 d-flex justify-content-center gap-5" style="color: #F2A93B">
-                                <i class="fa-brands fa-x-twitter fs-3 logo"></i>
-                                <i class="fa-brands fa-google-plus-g fs-3 logo"></i>
                                 <i class="fa-brands fa-facebook fs-3 logo"></i>
+                                <i class="fa-brands fa-google-plus-g fs-3 logo"></i>
+                                <i class="fa-regular fa-envelope fs-3 logo"></i>
                             </div>
                             <hr class="border mt-4" style="color: #D9D9E3">
                             <h6 class="word1 d-flex justify-content-center" style="color: #D9D9E3">Don't have an account?<a class="text-decoration-none ms-2 linktag" href="{{route('register')}}" style="color: #F2A93B">Create account.</a></h6>
